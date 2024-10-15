@@ -11,7 +11,7 @@ const ChooseCategory = () => {
         <section className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
             <h3 className="px-6 text-3xl sm:pb-8">Escoge tu categoría</h3>
             <article className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                {!loading &&  result !== undefined && (
+                {!loading && result ? (
                     result.map((category: CategoryType) => {    
                         const { id, categoryName, slug, mainImage: { url: image } } = category;
                         return (
@@ -25,9 +25,9 @@ const ChooseCategory = () => {
                                 />
                                 <p className="absolute text-lg text-center text-white w-full py-2 bottom-5 backdrop-blur-sm">{categoryName}</p>
                             </Link>
-                        )
+                        );
                     })
-                )}
+                ) : null}
             </article>
         </section>
     );

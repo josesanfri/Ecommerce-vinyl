@@ -15,12 +15,10 @@ export type VinylType = {
         url: string;
     }[];
     category: {
-        data: {
-            id: number;
-            categoryName: string;
-            slug: string;
-        }[];
-    };
+        id: number;
+        categoryName: string;
+        slug: string;
+    }[];
     tracks: {
         tracklist: {
             [discName: string]: TrackType[];  // Cambia esto

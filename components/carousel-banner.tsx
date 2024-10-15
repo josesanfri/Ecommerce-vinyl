@@ -7,14 +7,14 @@ import Autoplay from 'embla-carousel-autoplay'
 export const bannerData = [
     {
         id: 1,
-        title: "Envio en 48h",
-        description: "Como cliente premium, tu envio estará disponible en 24h",
+        title: "Envío en 48h",
+        description: "Como cliente premium, tu envío estará disponible en 24h",
         link: "#!", 
     },
     {
         id: 2,
-        title: "Devoluciones y envios gratuitos",
-        description: "Como cliente puedes disfrutar de tus envios gratuitos",
+        title: "Devoluciones y envíos gratuitos",
+        description: "Como cliente puedes disfrutar de tus envíos gratuitos",
         link: "#!", 
     },
     {

@@ -1,7 +1,7 @@
 "use client";
 import { useGetCategoryProduct } from "@/api/useGetCategoryProduct";
 import { Separator } from "@radix-ui/react-dropdown-menu";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import FiltersControlsCategory from "./components/filters-controls-category";
 import SkeletonSchema from "@/components/skeleton-schema";
 import VinylCard from "./components/vinyl-card";
@@ -11,6 +11,8 @@ import { useState } from "react";
 export default function Page() {
     const params = useParams();
     const { result, loading } = useGetCategoryProduct(params.categorySlug);
+    console.log("params", params.categorySlug);
+    console.log("reaultado", result);
 
     const [filterFormat, setFilterFormat] = useState<string>("");
 
@@ -24,7 +26,7 @@ export default function Page() {
     return (
         <main className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
             {result !== null && !loading && (
-                <h1 className="text-3xl font-medium">Productos de {result[0].category.categoryName}</h1>
+                <h1 className="text-3xl font-medium">Productos de {result[0]?.category[0]?.categoryName}</h1>
             )}
             <Separator />
             <section className="sm:flex sm:justify-between">
