@@ -11,22 +11,17 @@ import { useState } from "react";
 export default function Page() {
     const params = useParams();
     const { result, loading } = useGetCategoryProduct(params.categorySlug);
-    console.log("params", params.categorySlug);
-    console.log("reaultado", result);
 
     const [filterFormat, setFilterFormat] = useState<string>("");
 
-    // Asegúrate de que filteredVinyls siempre sea un array
     const filteredVinyls = !loading && result ? (
-        filterFormat === '' ? result : result.filter((vinyl: VinylType) => vinyl.format === filterFormat)
+        filterFormat === '' ? result : result.filter((vinyl: VinylType) => vinyl.attributes.format === filterFormat)
     ) : [];
-
-    console.log(filterFormat);
 
     return (
         <main className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
             {result !== null && !loading && (
-                <h1 className="text-3xl font-medium">Productos de {result[0]?.category[0]?.categoryName}</h1>
+                <h1 className="text-3xl font-medium">Productos de {result[0]?.attributes?.category?.data.attributes?.categoryName}</h1>
             )}
             <Separator />
             <section className="sm:flex sm:justify-between">

@@ -10,6 +10,7 @@ type FilterFormatProps = {
 const FilterFormat = (props: FilterFormatProps) => {
     const { setFilterFormat } = props;
     const { result, loading }: FilterTypes = useGetVinylField();
+    console.log("se caran", result);
 
     return (
         <section className="sm:w-[350px] sm:mt-5">

@@ -9,8 +9,8 @@ import {loadStripe} from '@stripe/stripe-js';
 import { makePaymentRequest } from "@/api/payment";
 
 export default function PageCart() {
-    const { items, removeAll } = useCartStore();
-    const prices = items.map((item) => item.price);
+    const { items } = useCartStore();
+    const prices = items.map((item) => item.attributes.price);
     const totalPrice = prices.reduce((total, price) => total + price, 0);
     const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "");
 
@@ -23,7 +23,6 @@ export default function PageCart() {
             await stripe?.redirectToCheckout({ 
                 sessionId: res.data.stripeSession.id 
             });
-            removeAll();
         } catch (error) {
             console.log(error);
         }

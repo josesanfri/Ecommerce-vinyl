@@ -1,10 +1,17 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useCartStore } from "@/hooks/use-cart";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 export default function PageSuccess() {
+    const { removeAll } = useCartStore();
+
+    useEffect(() => {
+        removeAll();
+    }, [removeAll]);
     const router = useRouter();
     return (
         <main className="max-w-5xl p-4 mx-auto sm:px-24 lg:py-16">

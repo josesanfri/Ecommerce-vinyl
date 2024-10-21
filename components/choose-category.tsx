@@ -13,13 +13,14 @@ const ChooseCategory = () => {
             <article className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 {!loading && result ? (
                     result.map((category: CategoryType) => {    
-                        const { id, categoryName, slug, mainImage: { url: image } } = category;
+                        const { id, attributes } = category;
+                        const { categoryName, slug, mainImage } = attributes;
                         return (
                             <Link key={id} href={`/category/${slug}`} 
-                                className="relative max-w-xs mx-auto rounded-lg bg-no-repeat bg-cover overflow-hidden rounded-lg"
+                                className="relative max-w-xs mx-auto bg-no-repeat bg-cover overflow-hidden rounded-lg"
                             >
                                 <img 
-                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image}`} 
+                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${mainImage.data.attributes.url}`} 
                                     alt={categoryName} 
                                     className="max-w-[270px] transition duration-300 ease-in-out rounded-lg hover:scale-110 hover:z-10"
                                 />

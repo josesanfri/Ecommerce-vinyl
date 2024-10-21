@@ -11,7 +11,6 @@ export default function Page() {
     const { slug } = params;
 
     const { result } = useGetVinylBySlug(slug);
-    console.log(result);
 
     if(result === null){
         return <SkeletonVinyl />
@@ -20,7 +19,7 @@ export default function Page() {
         <main className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
             <div className="grid sm:grid-cols-2">
                 <div>
-                    <CarouselVinyl images={result[0].images} />
+                    <CarouselVinyl images={result[0].attributes.images} />
                 </div>
                 <div className="sm:px-12">
                     <InfoVinyl vinyl={result[0]} />

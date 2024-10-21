@@ -9,10 +9,10 @@ const VinylFormatGenre = (props: VinylFormatGenreProps) => {
     return (
         <div className="flex items-center justify-between mt-2 gap-3">
             <p className="p-2 text-xs bg-black text-white rounded-full w-fit dark:bg-white dark:text-black">
-                {vinyl.genre}
+                {vinyl.attributes.genre}
             </p>
             <p className="p-2 text-xs bg-black text-white rounded-full w-fit dark:bg-white dark:text-black">
-                {vinyl.format}
+                {vinyl.attributes.format}
             </p>
         </div>
     );

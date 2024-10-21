@@ -13,21 +13,20 @@ interface VinylCartItem {
 
 const CartItem = (props: VinylCartItem) => {
     const { vinyl } = props;
-    console.log('vinyl', vinyl);
     const router = useRouter();
     const { removeItem } = useCartStore();
     return (
         <li className="flex py-6 border-b">
-            <div onClick={() => router.push(`/vinyls/${vinyl.slug}`)} className="cursor-pointer">
+            <div onClick={() => router.push(`/vinyls/${vinyl.attributes.slug}`)} className="cursor-pointer">
                 <img 
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${vinyl.images[0].url}`} 
-                    alt={vinyl.title} 
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${vinyl.attributes.images.data[0].attributes.url}`} 
+                    alt={vinyl.attributes.title} 
                     className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32" />
             </div>
             <div className="flex justify-between flex-1 px-6">
                 <div>
-                    <h2 className="text-lg font-bold">{vinyl.title} - {vinyl.artist}</h2>
-                    <p className="mt-2">{formatPrice(vinyl.price)}</p>
+                    <h2 className="text-lg font-bold">{vinyl.attributes.title} - {vinyl.attributes.artist}</h2>
+                    <p className="mt-2">{formatPrice(vinyl.attributes.price)}</p>
                     <VinylFormatGenre vinyl={vinyl} />
                 </div>
                 <div>

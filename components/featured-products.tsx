@@ -28,7 +28,8 @@ const FeaturedProducts = () => {
                     )}
                     {products !== null && (
                         products.map((vinyl: VinylType) => {
-                            const { id, images, title, slug, artist, genre } = vinyl;
+                            const { id, attributes } = vinyl;
+                            const { images, title, slug, artist, genre } = attributes;
 
                             return (
                                 <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">
@@ -36,7 +37,7 @@ const FeaturedProducts = () => {
                                         <Card className="py-4 border border-gray-200 shadow-none">
                                             <CardContent className="relative flex items-center justify-center px-6 py-2">
                                                 <img 
-                                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].url}`} 
+                                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images.data[0].attributes.url}`} 
                                                     alt={title}
                                                     className="h-full w-full object-cover rounded-xl" 
                                                 />

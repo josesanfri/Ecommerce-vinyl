@@ -27,12 +27,12 @@ const InfoVinyl = (props: InfoVinylProps) => {
 
     return (
         <section className="p-4">
-            <h2 className="text-2xl">{vinyl.artist} - {vinyl.title}</h2>
+            <h2 className="text-2xl">{vinyl.attributes.artist} - {vinyl.attributes.title}</h2>
             <Separator className="w-full bg-gray-200 h-px my-2" />
 
             <article className="grid grid-cols-2 items-center gap-x-4 gap-y-2">
                 <p className="text-lg">
-                    {formatPrice(vinyl.price)}
+                    {formatPrice(vinyl.attributes.price)}
                 </p>
                 <VinylFormatGenre vinyl={vinyl} />
             </article>
@@ -41,15 +41,15 @@ const InfoVinyl = (props: InfoVinylProps) => {
                 <AccordionItem value="item-1">
                     <AccordionTrigger>Infomarción</AccordionTrigger>
                     <AccordionContent>
-                        <p><span className="font-bold">Género:</span> {vinyl.genre}</p>
-                        <p className="mt-1"><span className="font-bold">Discográfica:</span> {vinyl.label}</p>
-                        <p className="w-fit text-wrap mt-1">{vinyl.description}</p>
+                        <p><span className="font-bold">Género:</span> {vinyl.attributes.genre}</p>
+                        <p className="mt-1"><span className="font-bold">Discográfica:</span> {vinyl.attributes.label}</p>
+                        <p className="w-fit text-wrap mt-1">{vinyl.attributes.description}</p>
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
                     <AccordionTrigger>Tracklist</AccordionTrigger>
                     <AccordionContent>
-                        {Object.entries(vinyl.tracks.tracklist).map(([discName, tracks], discIndex) => (
+                        {Object.entries(vinyl.attributes.tracks.tracklist).map(([discName, tracks], discIndex) => (
                             <div key={`disc-${discIndex}`} className="mt-2">
                                 <p className="font-bold">{discName}</p>
                                 <ul>
