@@ -28,7 +28,7 @@ const FavoriteItem = (props: FavoriteItemProps) => {
         <li className="flex py-6 border-b">
             <div onClick={() => router.push(`/vinyls/${vinyl.attributes.slug}`)} className="cursor-pointer">
                 <img 
-                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${vinyl.attributes.images.data[0].attributes.url}`} 
+                    src={`${vinyl.attributes.images.data[0].attributes.url}`} 
                     alt={vinyl.attributes.title} 
                     className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32" />
             </div>

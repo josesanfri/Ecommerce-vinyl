@@ -37,7 +37,7 @@ const VinylCard = (props: VinylCardProps) => {
                         <CarouselItem key={image.id} className="group"> 
                             <img
                                 key={image.id}
-                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.attributes.url}`}
+                                src={`${image.attributes.url}`}
                                 alt={`'imagen${image.id}'`}
                                 className="w-full h-full object-cover"
                             />

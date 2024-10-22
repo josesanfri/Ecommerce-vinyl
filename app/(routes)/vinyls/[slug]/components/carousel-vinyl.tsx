@@ -20,7 +20,7 @@ const CarouselVinyl = (props: CarouselVinylProps) => {
                 <CarouselContent>
                     {images.data.map((image, index) => (
                         <CarouselItem key={image.id}>
-                            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.attributes.url}`} alt={`Vinyl ${index}`} className="w-full md:rounded-lg" />
+                            <img src={`${image.attributes.url}`} alt={`Vinyl ${index}`} className="w-full md:rounded-lg" />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
