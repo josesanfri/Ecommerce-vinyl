@@ -7,7 +7,7 @@ type FiltersControlsCategoryProps = {
 const FiltersControlsCategory = (props: FiltersControlsCategoryProps) => {
     const { setFilterFormat } = props;
     return (
-        <section className="p-4 sm:w-[350px] sm:mt-5">
+        <section className="p-4 sm:pl-0">
             <FilterFormat setFilterFormat={setFilterFormat} />
         </section>
     );

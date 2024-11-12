@@ -8,8 +8,8 @@ const ChooseCategory = () => {
     const { result, loading } = useGetCategories();
     
     return (
-        <section className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
-            <h3 className="px-6 text-3xl sm:pb-8">Escoge tu categoría</h3>
+        <section className="max-w-6xl py-4 mx-auto sm:py-8 sm:px-24">
+            <h3 className="text-3xl pb-4 text-center">Escoge tu categoría</h3>
             <article className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 {!loading && result ? (
                     result.map((category: CategoryType) => {    

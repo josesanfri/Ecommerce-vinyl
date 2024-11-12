@@ -21,12 +21,12 @@ export default function Page() {
     return (
         <main className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
             {result !== null && !loading && (
-                <h1 className="text-3xl font-medium">Productos de {result[0]?.attributes?.category?.data.attributes?.categoryName}</h1>
+                <h1 className="text-3xl p-4 sm:pl-0 font-medium">Productos de {result[0]?.attributes?.category?.data.attributes?.categoryName}</h1>
             )}
             <Separator />
             <section className="sm:flex sm:justify-between">
                 <FiltersControlsCategory setFilterFormat={setFilterFormat} />
-                <article className="grid gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
+                <article className="grid gap-5 mt-8 sm:grid-cols-2 md:gap-10">
                     {loading && (
                         <SkeletonSchema grid={3} />
                     )}

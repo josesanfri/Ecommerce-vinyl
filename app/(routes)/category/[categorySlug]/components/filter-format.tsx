@@ -13,7 +13,7 @@ const FilterFormat = (props: FilterFormatProps) => {
     console.log("se caran", result);
 
     return (
-        <section className="sm:w-[350px] sm:mt-5">
+        <section className="sm:mt-5">
             <p className="text-xl font-semibold">Formato</p>
             {loading && result === null && (
                 <p>Cargando...</p>
